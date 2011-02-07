@@ -23,6 +23,13 @@ describe Facebooker2 do
       Facebooker2.secret.should == "secret"
       
     end
+
+    it "should allow setting the url of the application" do
+      Facebooker2.configuration = {:app_id=>1234,:secret=>"secret",:app_url=>"http://apps.facebook.com/facebooker2"}
+      Facebooker2.app_id.should == 1234
+      Facebooker2.secret.should == "secret"
+      Facebooker2.app_url.should == "http://apps.facebook.com/facebooker2"
+    end
     
     it "raises an exception if you access a nil app_id" do
       Facebooker2.app_id = nil

@@ -3,7 +3,7 @@ require "mogli"
 module Facebooker2
   class NotConfigured < Exception; end
   class << self
-    attr_accessor :api_key, :secret, :app_id
+    attr_accessor :api_key, :secret, :app_id, :app_url
   end
     
   def self.secret
@@ -22,6 +22,7 @@ module Facebooker2
     self.api_key = hash[:api_key]
     self.secret = hash[:secret]
     self.app_id = hash[:app_id]
+    self.app_url = hash[:app_url]
   end
   
   def self.load_facebooker_yaml
