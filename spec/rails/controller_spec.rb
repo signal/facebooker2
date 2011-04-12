@@ -21,6 +21,11 @@ describe Facebooker2::Rails::Controller do
   it "should include helpers" do
     controller.master_helper_module.ancestors.should include(Facebooker2::Rails::Helpers)
   end
+
+  it "should hide its methods from being actions" do
+    controller.class.action_methods.should_not include(:current_facebook_user)
+    controller.class.action_methods.should_not include(:current_facebook_client)
+  end
   
   describe "Cookie handling" do
     

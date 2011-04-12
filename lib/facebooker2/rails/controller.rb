@@ -9,6 +9,8 @@ module Facebooker2
         controller.helper_method :current_facebook_user
         controller.helper_method :current_facebook_client
         controller.helper_method :facebook_params
+
+        controller.hide_action(*self.instance_methods)
       end
       
       def current_facebook_user
